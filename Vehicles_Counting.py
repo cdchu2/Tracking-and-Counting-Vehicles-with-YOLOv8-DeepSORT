@@ -110,7 +110,9 @@ class VehicleCounter:
                     pos = ((x1, y1), (x2, y2))
 
                     cv2.rectangle(frame, pos[0], pos[1], (0, 128, 255), 1)
-                    text = f'{class_name} {conf}'
+                    # text = f'{class_name} {conf}'
+                    text = f'{class_name} {track_id}'
+
                     text_size, _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_PLAIN, 1, 1)
                     pt1 = (pos[0][0], pos[0][1] - text_size[1] - 10) 
                     pt2 = (pos[0][0] + text_size[0] + 10, pos[0][1]) 
@@ -195,7 +197,7 @@ class VehicleCounter:
         
 if __name__ == "__main__":
     
-    VIDEO_PATH = "vehicle-counting.mp4"
+    VIDEO_PATH = "3.mp4"
     RES_PATH = "output.mp4"
     YOLO_WEIGHT = "yolov8l.pt"
     MODEL_PATH = "config/mars-small128.pb"
